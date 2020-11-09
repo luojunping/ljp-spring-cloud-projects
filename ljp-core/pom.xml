@@ -7,6 +7,7 @@
         <artifactId>ljp-spring-cloud-projects</artifactId>
         <groupId>com.ljp</groupId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -15,12 +16,15 @@
     <packaging>jar</packaging>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-logging -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-logging</artifactId>
+            <artifactId>spring-boot-starter-security</artifactId>
             <scope>compile</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>ljp-core</finalName>
+    </build>
 
 </project>

@@ -20,22 +20,12 @@
     <properties>
         <java.version>11</java.version>
         <mybatis-plus.version>3.4.0</mybatis-plus.version>
-        <druid.version>1.2.1</druid.version>
+        <druid.version>1.2.3</druid.version>
         <apollo-client.version>1.7.0</apollo-client.version>
     </properties>
 
     <dependencies>
         <!-- Spring Boot -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -49,11 +39,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-log4j2</artifactId>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -79,7 +64,7 @@
         <!-- Spring Boot Others -->
 
         <!-- Spring Cloud -->
-        <!-- <dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
             <scope>compile</scope>
@@ -88,36 +73,36 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
             <scope>compile</scope>
-        </dependency> -->
+        </dependency>
         <!-- 服务注册中心要使用，eureka客户端不用 -->
-        <!-- <dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
             <scope>compile</scope>
-        </dependency> -->
+        </dependency>
         <!-- 服务提供者，eureka客户端需要使用 -->
-        <!-- <dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency> -->
+        </dependency>
         <!-- Feign远程调用，需要调用服务接口可以使用 -->
-        <!-- <dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
             <scope>compile</scope>
-        </dependency> -->
+        </dependency>
         <!-- 断路器，服务调用者需要使用该组件，来保证其他服务降级时的处理逻辑 -->
-        <!-- <dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
             <scope>compile</scope>
-        </dependency> -->
+        </dependency>
         <!-- 网关，对外开放的接收外部请求的服务 -->
-        <!-- <dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
             <scope>compile</scope>
-        </dependency> -->
+        </dependency>
         <!-- Spring Cloud -->
 
         <!-- Others -->
