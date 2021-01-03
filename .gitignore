@@ -972,18 +972,8 @@ local.properties
 
 .gitignore
 .idea/
-ljp-client/ljp-client.iml
-ljp-client/target/classes/
-ljp-client/target/generated-sources/
-ljp-client/target/generated-test-sources/
 ljp-core/ljp-core.iml
 ljp-core/target/classes/
 ljp-core/target/generated-sources/
 ljp-core/target/generated-test-sources/
-ljp-server/ljp-server.iml
-ljp-server/target/classes/com/ljp/ServerApplication.class
-ljp-server/target/classes/com/ljp/test/
-ljp-server/target/generated-sources/
-ljp-server/target/generated-test-sources/
-ljp-server/target/test-classes/
 ljp-spring-cloud-projects.iml
