@@ -8,7 +8,7 @@
 docs/_book
 
 # TODO: where does this rule come from?
-test/
+# test/
 
 ### Windows template
 # Windows thumbnail cache files
@@ -51,7 +51,7 @@ $RECYCLE.BIN/
 
 # Ignore all JENKINS_HOME except jobs directory, root xml config, and
 # .gitignore file.
-/*
+# /*
 !/jobs
 !/.gitignore
 !/*.xml

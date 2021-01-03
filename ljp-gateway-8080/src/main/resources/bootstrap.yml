@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: ljp-server
+          uri: http://127.0.0.1:9096
+          predicates:
+            - Path=/ljp-server/*
+          filters:
+            - AddRequestHeader=hello, world
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallbackUri: forward:/fallback
+
+# 这里的fallbackcmd就是第二步的那个名字
+hystrix.command.fallbackcmd.execution.isolation.thread.timeoutInMilliseconds: 1000
