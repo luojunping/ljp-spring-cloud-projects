@@ -1,0 +1,21 @@
+server:
+  port: 8086
+  servlet:
+    encoding:
+      enabled: true
+      force: true
+      charset: utf-8
+      force-request: true
+      force-response: true
+eureka:
+  instance:
+    instance-id: ljp-eureka-8086
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://127.0.0.1:8086/eureka/
+spring:
+  application:
+    name: ljp-eureka

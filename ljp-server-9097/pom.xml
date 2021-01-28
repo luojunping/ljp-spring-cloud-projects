@@ -2,6 +2,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <parent>
         <artifactId>ljp-spring-cloud-projects</artifactId>
         <groupId>com.ljp</groupId>
@@ -47,14 +48,7 @@
         <!-- Spring Boot -->
 
         <!-- Spring Boot Others -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-        </dependency>
+
         <!-- Spring Boot Others -->
 
         <!-- Spring Cloud -->
@@ -101,9 +95,8 @@
 
         <!-- Others -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
+            <groupId>com.ljp</groupId>
+            <artifactId>ljp-core</artifactId>
         </dependency>
         <!-- Others -->
     </dependencies>

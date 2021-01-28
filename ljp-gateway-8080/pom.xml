@@ -15,6 +15,7 @@
     <artifactId>ljp-gateway-8080</artifactId>
 
     <dependencies>
+        <!-- Spring Cloud -->
         <!-- 网关，对外开放的接收外部请求的服务 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -25,6 +26,21 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
         </dependency>
+        <!-- Spring Cloud -->
+
+        <dependency>
+            <groupId>com.ljp</groupId>
+            <artifactId>ljp-core</artifactId>
+        </dependency>
     </dependencies>
 
+    <build>
+        <finalName>ljp-gateway-8080</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

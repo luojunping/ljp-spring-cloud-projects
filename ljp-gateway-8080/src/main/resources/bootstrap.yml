@@ -12,6 +12,9 @@ spring:
               args:
                 name: fallbackcmd
                 fallbackUri: forward:/fallback
-
-# 这里的fallbackcmd就是第二步的那个名字
-hystrix.command.fallbackcmd.execution.isolation.thread.timeoutInMilliseconds: 1000
+        - id: ljp-gateway
+          uri: http://127.0.0.1:8080
+          predicates:
+            - Path=/ljp-gateway/*
+          filters:
+            - AddRequestHeader=hello, world

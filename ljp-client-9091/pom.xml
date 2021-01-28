@@ -46,43 +46,20 @@
         <!-- Spring Boot -->
 
         <!-- Spring Boot Others -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-        </dependency>
+
         <!-- Spring Boot Others -->
 
         <!-- Spring Cloud -->
+        <!-- Feign远程调用，需要调用服务接口可以使用 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-server</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <!-- 服务注册中心要使用，eureka客户端不用 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
             <scope>compile</scope>
         </dependency>
         <!-- 服务提供者，eureka客户端需要使用 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-        <!-- Feign远程调用，需要调用服务接口可以使用 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-            <scope>compile</scope>
         </dependency>
         <!-- 断路器，服务调用者需要使用该组件，来保证其他服务降级时的处理逻辑 -->
         <dependency>
@@ -100,9 +77,8 @@
 
         <!-- Others -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
+            <groupId>com.ljp</groupId>
+            <artifactId>ljp-core</artifactId>
         </dependency>
         <!-- Others -->
     </dependencies>

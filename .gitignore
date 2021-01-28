@@ -972,8 +972,18 @@ local.properties
 
 .gitignore
 .idea/
+ljp-client-9091/ljp-client-9091.iml
+ljp-client-9091/target/
 ljp-core/ljp-core.iml
-ljp-core/target/classes/
-ljp-core/target/generated-sources/
-ljp-core/target/generated-test-sources/
+ljp-core/target/
+ljp-eureka-8086/ljp-eureka-8086.iml
+ljp-eureka-8086/target/
+ljp-gateway-8080/ljp-gateway-8080.iml
+ljp-gateway-8080/target/
+ljp-server-9096/ljp-server-9096.iml
+ljp-server-9096/target/
+ljp-server-9097/ljp-server-9097.iml
+ljp-server-9097/target/
+ljp-spring/ljp-spring.iml
+ljp-spring/target/
 ljp-spring-cloud-projects.iml
