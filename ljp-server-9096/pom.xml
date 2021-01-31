@@ -72,10 +72,10 @@
             <scope>compile</scope>
         </dependency> -->
         <!-- 服务提供者，eureka客户端需要使用 -->
-        <!-- <dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency> -->
+        </dependency>
         <!-- Feign远程调用，需要调用服务接口可以使用 -->
         <!-- <dependency>
             <groupId>org.springframework.cloud</groupId>
