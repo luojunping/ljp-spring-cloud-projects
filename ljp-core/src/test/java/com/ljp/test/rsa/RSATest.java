@@ -7,6 +7,7 @@ import javax.crypto.NoSuchPaddingException;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.*;
+import java.util.Base64;
 
 public class RSATest {
 
@@ -19,10 +20,11 @@ public class RSATest {
         Cipher cipher = Cipher.getInstance("RSA");
         cipher.init(Cipher.ENCRYPT_MODE, publicKey);
         byte[] jiami = cipher.doFinal("hello world !!! 中国北京！！！".getBytes());
-        for (byte b : jiami) System.out.print(b);
-        // System.out.println(new String(jiami, "UTF-8"));
+        String jiamiStr = Base64.getEncoder().encodeToString(jiami);
+        System.out.println("jiamiStr = " + jiamiStr);
         cipher.init(Cipher.DECRYPT_MODE, privateKey);
-        System.out.println(new String(cipher.doFinal(jiami), StandardCharsets.UTF_8));
+        byte[] jiemi = cipher.doFinal(Base64.getDecoder().decode(jiamiStr));
+        System.out.println(new String(jiemi, StandardCharsets.UTF_8));
     }
 
 }

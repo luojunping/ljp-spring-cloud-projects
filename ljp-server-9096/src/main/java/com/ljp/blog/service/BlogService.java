@@ -14,6 +14,10 @@ public interface BlogService {
 
     List<BlogDTO> getBlogDTO(String blogName);
 
-    BlogDTO addBlogDTO(BlogDTO blogDTO);
+    int addBlogDTO(BlogDTO blogDTO);
+
+    int updateBlogDTO(BlogDTO blogDTO);
+
+    int deleteBlogDTO(Long id);
 
 }

@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration debug="false" scan="false" scanPeriod="300 seconds">
+<configuration debug="false" scan="false" scanPeriod="600 seconds">
     <property resource="application.properties"/>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <!--<withJansi>true</withJansi>-->
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} ${spring.application.name} [%thread] %-5level %logger{50} - %msg%n
+            <pattern>
+                %yellow(%d{MM-dd HH:mm:ss}) [%thread] %-5level %logger{50} - %cyan(%msg%n)
             </pattern>
         </encoder>
     </appender>
     <appender name="FILE_OUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${logging.file.path}/${spring.application.name}/%d{yyyy-MM-dd HH}_%i.log</fileNamePattern>
+            <fileNamePattern>${logging.file.path}/${spring.application.name}/%d{yyyy-MM-dd}-%i.log</fileNamePattern>
             <maxHistory>180</maxHistory>
             <maxFileSize>100mb</maxFileSize>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} ${spring.application.name} [%thread] %-5level %logger{50} - %msg%n%ex{full,
-                DISPLAY_EX_EVAL}
-            </pattern>
+            <pattern>%d{HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n%ex{full, DISPLAY_EX_EVAL}</pattern>
         </encoder>
     </appender>
     <appender name="HTML_OUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${logging.file.path}/${spring.application.name}/%d{yyyy-MM-dd HH}_%i.html</fileNamePattern>
+            <fileNamePattern>${logging.file.path}/${spring.application.name}/%d{yyyy-MM-dd}-%i.html</fileNamePattern>
             <maxHistory>180</maxHistory>
-            <maxFileSize>100mb</maxFileSize>
+            <maxFileSize>10mb</maxFileSize>
         </rollingPolicy>
         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
             <layout class="ch.qos.logback.classic.html.HTMLLayout">
@@ -34,7 +33,7 @@
                     <url>http://...</url>
                 </cssBuilder>-->
                 <!--<pattern>%relative%thread%mdc%level%logger%msg</pattern>-->
-                <pattern>%line%date{yyyy-MM-dd HH:mm:ss}${spring.application.name}%thread%mdc%level%logger%msg</pattern>
+                <pattern>%line%date{HH:mm:ss}%thread%mdc%level%logger%msg</pattern>
                 <!--<pattern>%d{yyyy-MM-dd HH:mm:ss} ${spring.application.name} [%thread] %-5level %logger{50} - %msg%n%ex{full, DISPLAY_EX_EVAL}</pattern>-->
             </layout>
         </encoder>
@@ -56,7 +55,7 @@
         </connectionSource>-->
     </appender>
 
-    <root level="DEBUG">
+    <root level="ERROR">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE_OUT"/>
         <appender-ref ref="HTML_OUT"/>

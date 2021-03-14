@@ -33,9 +33,34 @@ public class BlogServiceImpl implements BlogService {
 
     @Transactional(rollbackFor = Throwable.class)
     @Override
-    public BlogDTO addBlogDTO(BlogDTO blogDTO) {
-        blogDAO.insert(blogDTO);
-        return blogDTO;
+    public int addBlogDTO(BlogDTO blogDTO) {
+//        Thread t1 = new Thread(() -> {
+//            blogDAO.insert(blogDTO);
+//        });
+//        t1.start();
+        Thread t2 = new Thread(() -> {
+            BlogDTO b = new BlogDTO();
+            b.setBlogName("987654321");
+            b.setBlogContent("123456789");
+            b.setUserId("000000");
+            b.setCatalog("666666");
+            blogDAO.insert(b);
+        });
+        t2.start();
+        System.out.println(1 / 0);
+        return blogDAO.insert(blogDTO);
+    }
+
+    @Transactional(rollbackFor = Throwable.class)
+    @Override
+    public int updateBlogDTO(BlogDTO blogDTO) {
+        return blogDAO.updateById(blogDTO);
+    }
+
+    @Transactional(rollbackFor = Throwable.class)
+    @Override
+    public int deleteBlogDTO(Long id) {
+        return blogDAO.deleteById(id);
     }
 
 }

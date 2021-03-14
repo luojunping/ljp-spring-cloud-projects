@@ -1,0 +1,32 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: ljp-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: ljp-server
+          ## uri: http://127.0.0.1:9096
+          uri: lb://ljp-server
+          predicates:
+            - Path=/ljp-server/**
+#          filters:
+#            - name: Hystrix
+#              args:
+#                name: fallbackcmd
+#                fallbackUri: forward:/fallback
+eureka:
+  client:
+    enabled: true
+    ## register-with-eureka: true
+    ## fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8086/eureka/
+  instance:
+    ## instance-id: ljp-gateway-8080
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}:${spring.application.name}
+    prefer-ip-address: true
+
+## 这里的fallbackcmd就是第二步的那个名字
+## hystrix.command.fallbackcmd.execution.isolation.thread.timeoutInMilliseconds: 1000

@@ -25,8 +25,18 @@ public class BlogController {
     }
 
     @PostMapping("/blog/addBlogDTO")
-    public BlogDTO addBlogDTO(@RequestBody BlogDTO blogDTO) {
+    public int addBlogDTO(@RequestBody BlogDTO blogDTO) {
         return blogService.addBlogDTO(blogDTO);
+    }
+
+    @PutMapping("/blog/updateBlogDTO")
+    public int updateBlogDTO(@RequestBody BlogDTO blogDTO) {
+        return blogService.updateBlogDTO(blogDTO);
+    }
+
+    @DeleteMapping("/blog/deleteBlogDTO")
+    public int deleteBlogDTO(@RequestParam("id") Long id) {
+        return blogService.deleteBlogDTO(id);
     }
 
 }
