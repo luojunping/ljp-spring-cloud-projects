@@ -18,16 +18,19 @@ import javax.jms.Destination;
 @Configuration(proxyBeanMethods = false)
 public class DestinationConfiguration {
 
+    public static final String TEST_QUEUE = "test-queue";
+    public static final String TEST_TOPIC = "test-topic";
+
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
     public Destination testQueue() {
-        return new ActiveMQQueue("test-queue");
+        return new ActiveMQQueue(DestinationConfiguration.TEST_QUEUE);
     }
 
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
     public Destination testTopic() {
-        return new ActiveMQTopic("test-topic");
+        return new ActiveMQTopic(DestinationConfiguration.TEST_TOPIC);
     }
 
 }

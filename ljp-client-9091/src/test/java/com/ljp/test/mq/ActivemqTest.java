@@ -14,7 +14,7 @@ import javax.jms.*;
 public class ActivemqTest {
 
     public static void main(String[] args) throws JMSException {
-        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616");
+        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("admin", "admin", "failover://(tcp://localhost:61616)");
         Connection connection = connectionFactory.createConnection();
         connection.start();
         Session session = connection.createSession(Boolean.TRUE, Session.AUTO_ACKNOWLEDGE);
@@ -22,12 +22,9 @@ public class ActivemqTest {
         for (int i = 0; i < 3; i++) {
             TextMessage textMessage = session.createTextMessage("hello world " + i);
             MessageProducer messageProducer = session.createProducer(queue);
-
             messageProducer.send(textMessage);
-            // messageProducer.send(textMessage);
         }
         session.commit();
-        // session.rollback();
         session.close();
         connection.close();
     }

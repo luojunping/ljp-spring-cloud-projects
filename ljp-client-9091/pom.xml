@@ -40,8 +40,17 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-activemq</artifactId>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.messaginghub</groupId>
+            <artifactId>pooled-jms</artifactId>
         </dependency>
         <!-- Spring Boot -->
 
@@ -62,11 +71,11 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
         <!-- 断路器，服务调用者需要使用该组件，来保证其他服务降级时的处理逻辑 -->
-        <!--<dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
             <scope>compile</scope>
-        </dependency>-->
+        </dependency>
         <!-- 网关，对外开放的接收外部请求的服务 -->
         <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -75,10 +84,6 @@
         </dependency>-->
         <!-- Spring Cloud -->
 
-        <dependency>
-            <groupId>org.messaginghub</groupId>
-            <artifactId>pooled-jms</artifactId>
-        </dependency>
         <!-- Others -->
         <dependency>
             <groupId>com.ljp</groupId>

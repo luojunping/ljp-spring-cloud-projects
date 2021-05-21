@@ -19,8 +19,9 @@ public class ActivemqController {
     private ActivemqService activemqService;
 
     @GetMapping("/test/activemq/send/text/message")
-    public void sendTextMessage(@RequestParam("textMessage") String textMessage) {
+    public String sendTextMessage(@RequestParam("textMessage") String textMessage) {
         activemqService.sendTextMessage(textMessage);
+        return "success";
     }
 
 }

@@ -20,11 +20,13 @@ public class HelloWorldController {
     @GetMapping("/test/gateway")
     // @DistributedLock("gateway")
     public String gateway(String name) {
+        System.out.println("------------" + port);
         try {
-            TimeUnit.SECONDS.sleep(2);
+            TimeUnit.SECONDS.sleep(5);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        System.out.println("============" + port);
         return "gateWay : " + port + " : " + name + "!!!";
     }
 

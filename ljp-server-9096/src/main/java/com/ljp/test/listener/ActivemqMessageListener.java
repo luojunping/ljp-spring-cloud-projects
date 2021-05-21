@@ -1,6 +1,8 @@
 package com.ljp.test.listener;
 
+import com.ljp.test.config.DestinationConfiguration;
 import com.ljp.util.ThreadPoolExecutorUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,23 +27,19 @@ import java.util.Objects;
 @Configuration(proxyBeanMethods = false)
 public class ActivemqMessageListener {
 
-    @JmsListener(destination = "test-queue", containerFactory = "testQueueListenerContainerFactory")
-    public static void testQueue(TextMessage message) throws JMSException {
+    @Value("${spring.application.name}")
+    private String clientId;
+
+    @JmsListener(destination = DestinationConfiguration.TEST_QUEUE, containerFactory = "testQueueListenerContainerFactory")
+    public void testQueue(TextMessage message) throws JMSException {
         // Object message = jmsTemplate.receiveAndConvert();
         System.out.println("test-queue = " + message.getText());
     }
 
-    @JmsListener(destination = "test-topic", containerFactory = "testTopicListenerContainerFactory")
-    public static void testTopic(TextMessage message) throws JMSException {
+    @JmsListener(destination = DestinationConfiguration.TEST_TOPIC, containerFactory = "testTopicListenerContainerFactory")
+    public void testTopic(TextMessage message) throws JMSException {
         // Object message = jmsTemplate.receiveAndConvert();
         System.out.println("test-topic = " + message.getText());
-    }
-
-    private static void init(DefaultJmsListenerContainerFactory defaultJmsListenerContainerFactory) {
-        defaultJmsListenerContainerFactory.setTaskExecutor(ThreadPoolExecutorUtils.create());
-        defaultJmsListenerContainerFactory.setConcurrency(ThreadPoolExecutorUtils.CORE_SIZE + "-" + (ThreadPoolExecutorUtils.CORE_SIZE << 1));
-        defaultJmsListenerContainerFactory.setSessionTransacted(Boolean.TRUE);
-        defaultJmsListenerContainerFactory.setSessionAcknowledgeMode(Session.AUTO_ACKNOWLEDGE);
     }
 
     @Bean
@@ -49,7 +47,6 @@ public class ActivemqMessageListener {
     public DefaultJmsListenerContainerFactory testQueueListenerContainerFactory(JmsTemplate jmsTemplate) {
         DefaultJmsListenerContainerFactory defaultJmsListenerContainerFactory = new DefaultJmsListenerContainerFactory();
         defaultJmsListenerContainerFactory.setConnectionFactory(Objects.requireNonNull(jmsTemplate.getConnectionFactory()));
-        defaultJmsListenerContainerFactory.setPubSubDomain(false);
         init(defaultJmsListenerContainerFactory);
         return defaultJmsListenerContainerFactory;
     }
@@ -59,9 +56,18 @@ public class ActivemqMessageListener {
     public DefaultJmsListenerContainerFactory testTopicListenerContainerFactory(JmsTemplate jmsTemplate) {
         DefaultJmsListenerContainerFactory defaultJmsListenerContainerFactory = new DefaultJmsListenerContainerFactory();
         defaultJmsListenerContainerFactory.setConnectionFactory(Objects.requireNonNull(jmsTemplate.getConnectionFactory()));
-        defaultJmsListenerContainerFactory.setPubSubDomain(true);
-        init(defaultJmsListenerContainerFactory);
+        defaultJmsListenerContainerFactory.setPubSubDomain(Boolean.TRUE);
+        // defaultJmsListenerContainerFactory.setClientId(clientId);
+        // defaultJmsListenerContainerFactory.setSubscriptionDurable(Boolean.TRUE);
+        // init(defaultJmsListenerContainerFactory);
         return defaultJmsListenerContainerFactory;
+    }
+
+    private void init(DefaultJmsListenerContainerFactory defaultJmsListenerContainerFactory) {
+        defaultJmsListenerContainerFactory.setTaskExecutor(ThreadPoolExecutorUtils.create());
+        defaultJmsListenerContainerFactory.setConcurrency(ThreadPoolExecutorUtils.CORE_SIZE + "-" + (ThreadPoolExecutorUtils.CORE_SIZE << 1));
+        defaultJmsListenerContainerFactory.setSessionTransacted(Boolean.TRUE);
+        defaultJmsListenerContainerFactory.setSessionAcknowledgeMode(Session.AUTO_ACKNOWLEDGE);
     }
 
 }

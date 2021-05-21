@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 public class HelloWorldController {
@@ -34,6 +35,13 @@ public class HelloWorldController {
     @GetMapping("/test/gateway")
     // @DistributedLock("gateway")
     public String gateway(String name) {
+        System.out.println("------------" + port);
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("============" + port);
         return "gateWay : " + port + " : " + name + "!!!";
     }
 
