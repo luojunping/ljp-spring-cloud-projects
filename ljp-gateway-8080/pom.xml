@@ -28,11 +28,14 @@
         </dependency>
         <!-- Spring Cloud -->
 
-        <!--others-->
+        <!-- Spring Cloud Alibaba -->
         <dependency>
-            <groupId>com.auth0</groupId>
-            <artifactId>java-jwt</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
         </dependency>
+        <!-- Spring Cloud Alibaba -->
+        <!--others-->
+
         <!--others-->
     </dependencies>
 
@@ -42,6 +45,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.ljp.Gateway8080Application</mainClass>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

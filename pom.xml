@@ -20,11 +20,14 @@
 
     <properties>
         <java.version>11</java.version>
-        <spring-boot.version>2.3.10.RELEASE</spring-boot.version>
-        <spring-cloud.version>Hoxton.SR11</spring-cloud.version>
-        <java-jwt.version>3.15.0</java-jwt.version>
-        <mybatis-plus.version>3.4.2</mybatis-plus.version>
+        <spring-boot.version>2.4.9</spring-boot.version>
+        <spring-cloud.version>2020.0.3</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
+        <pooled-jms.version>2.0.0</pooled-jms.version>
+        <java-jwt.version>3.18.1</java-jwt.version>
+        <mybatis-plus.version>3.4.3.1</mybatis-plus.version>
         <druid.version>1.2.6</druid.version>
+        <redisson.version>3.16.1</redisson.version>
     </properties>
 
     <dependencyManagement>
@@ -44,15 +47,24 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
                 <groupId>com.ljp</groupId>
                 <artifactId>ljp-core</artifactId>
                 <version>${project.version}</version>
                 <scope>compile</scope>
             </dependency>
+
             <dependency>
-                <groupId>com.auth0</groupId>
-                <artifactId>java-jwt</artifactId>
-                <version>${java-jwt.version}</version>
+                <groupId>org.messaginghub</groupId>
+                <artifactId>pooled-jms</artifactId>
+                <version>${pooled-jms.version}</version>
                 <scope>compile</scope>
             </dependency>
             <dependency>
@@ -66,6 +78,12 @@
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid.version}</version>
                 <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson.version}</version>
+                <scope>compile</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -89,9 +107,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.messaginghub</groupId>
-            <artifactId>pooled-jms</artifactId>
-            <version>1.2.1</version>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>${java-jwt.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -116,6 +134,18 @@
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
             <version>1.15</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>2.10.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

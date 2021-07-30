@@ -2,22 +2,21 @@ server:
   port: 8086
   servlet:
     encoding:
-      enabled: true
       force: true
       charset: utf-8
-      force-request: true
-      force-response: true
 spring:
   application:
     name: ljp-eureka
 eureka:
   instance:
-    instance-id: ljp-eureka-8086
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
     appname: ljp-eureka
     prefer-ip-address: true
-    lease-expiration-duration-in-seconds: 60
+    lease-expiration-duration-in-seconds: 300
   client:
     register-with-eureka: false
     fetch-registry: false
     service-url:
       defaultZone: http://127.0.0.1:8086/eureka/
+logging:
+  config: classpath:logback-spring.xml

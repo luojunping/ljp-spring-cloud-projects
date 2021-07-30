@@ -1,7 +1,9 @@
 package com.ljp.common.configuration;
 
 import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnSingleCandidate;
 import org.springframework.boot.autoconfigure.transaction.TransactionManagerCustomizers;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,16 +20,19 @@ import javax.sql.DataSource;
  * @date 2021/5/14
  * @since 1.0.0
  **/
-@ConditionalOnClass({PlatformTransactionManager.class, ConnectionFactory.class, DataSource.class})
+@ConditionalOnClass({JmsTransactionManager.class, DataSourceTransactionManager.class})
 @Configuration(proxyBeanMethods = false)
-public class TransactionManagerConfiguration {
+@ConditionalOnBean({ConnectionFactory.class, DataSource.class})
+public class TransactionManagerAutoConfiguration {
 
     @Bean("jmsTransactionManager")
+    @ConditionalOnSingleCandidate(ConnectionFactory.class)
     PlatformTransactionManager jmsTransactionManager(ConnectionFactory connectionFactory) {
         return new JmsTransactionManager(connectionFactory);
     }
 
     @Bean("dataSourceTransactionManager")
+    @ConditionalOnSingleCandidate(DataSource.class)
     PlatformTransactionManager dataSourceTransactionManager(DataSource dataSource, ObjectProvider<TransactionManagerCustomizers> transactionManagerCustomizers) {
         DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager(dataSource);
         transactionManagerCustomizers.ifAvailable((customizers) -> customizers.customize(dataSourceTransactionManager));
