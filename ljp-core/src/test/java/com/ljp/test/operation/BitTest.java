@@ -26,6 +26,7 @@ public class BitTest {
             try {
                 reentrantLock.lock();
                 condition.await(3, TimeUnit.SECONDS);
+                condition.await();
                 TimeUnit.SECONDS.sleep(1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
