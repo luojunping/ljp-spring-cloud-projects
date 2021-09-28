@@ -8,8 +8,8 @@ package com.ljp.test.service;
  **/
 public interface ActivemqService {
 
-    String sendMessageToQueue(String message);
+    /*String sendMessageToQueue(String message);
 
-    String sendMessageToTransactionQueue(String message);
+    String sendMessageToTransactionQueue(String message);*/
 
 }

@@ -1,16 +1,7 @@
 package com.ljp.test.service.impl;
 
-import com.ljp.blog.dao.BlogDAO;
-import com.ljp.blog.dto.BlogDTO;
 import com.ljp.test.service.ActivemqService;
-import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.interceptor.TransactionAspectSupport;
-
-import javax.annotation.Resource;
-import javax.jms.*;
-import java.util.UUID;
 
 /**
  * @author 罗俊平
@@ -21,7 +12,7 @@ import java.util.UUID;
 @Service
 public class ActivemqServiceImpl implements ActivemqService {
 
-    @Resource
+    /*@Resource
     private JmsTemplate jmsTemplate;
     @Resource
     private Destination testQueue;
@@ -88,6 +79,6 @@ public class ActivemqServiceImpl implements ActivemqService {
             }
         }
         return result;
-    }
+    }*/
 
 }

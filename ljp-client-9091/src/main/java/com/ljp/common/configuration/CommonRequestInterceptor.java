@@ -24,6 +24,7 @@ public class CommonRequestInterceptor implements RequestInterceptor {
         Optional.ofNullable(requestAttributes).ifPresent(ra -> {
                     HttpServletRequest request = ra.getRequest();
                     template.header("Cookie", request.getHeader("Cookie"));
+                    template.header("Authorization", "Bearer luojunping");
                 }
         );
     }

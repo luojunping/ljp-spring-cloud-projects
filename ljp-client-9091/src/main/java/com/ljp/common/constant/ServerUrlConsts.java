@@ -9,5 +9,6 @@ package com.ljp.common.constant;
 public abstract class ServerUrlConsts {
 
     public static final String SERVER_URL = "http://LJP-SERVER/ljp-server/";
+    public static final String SERVER_NAME = "LJP-SERVER";
 
 }

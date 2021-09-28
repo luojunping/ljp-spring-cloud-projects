@@ -1,13 +1,6 @@
 package com.ljp.test.config;
 
-import org.apache.activemq.command.ActiveMQQueue;
-import org.apache.activemq.command.ActiveMQTopic;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
-
-import javax.jms.Destination;
 
 /**
  * @author 罗俊平
@@ -21,7 +14,7 @@ public class DestinationConfiguration {
     public static final String TEST_QUEUE = "test-queue";
     public static final String TEST_TOPIC = "test-topic";
 
-    @Bean
+    /*@Bean
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
     public Destination testQueue() {
         return new ActiveMQQueue(DestinationConfiguration.TEST_QUEUE);
@@ -31,6 +24,6 @@ public class DestinationConfiguration {
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
     public Destination testTopic() {
         return new ActiveMQTopic(DestinationConfiguration.TEST_TOPIC);
-    }
+    }*/
 
 }

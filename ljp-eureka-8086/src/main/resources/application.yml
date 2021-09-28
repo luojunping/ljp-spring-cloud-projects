@@ -4,15 +4,16 @@ server:
     encoding:
       force: true
       charset: utf-8
+      enabled: true
 spring:
   application:
     name: ljp-eureka
 eureka:
   instance:
-    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
-    appname: ljp-eureka
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    appname: ${spring.application.name}
     prefer-ip-address: true
-    lease-expiration-duration-in-seconds: 300
+    lease-expiration-duration-in-seconds: 60
   client:
     register-with-eureka: false
     fetch-registry: false
@@ -20,3 +21,8 @@ eureka:
       defaultZone: http://127.0.0.1:8086/eureka/
 logging:
   config: classpath:logback-spring.xml
+  charset:
+    console: utf-8
+    file: UTF-8
+  file:
+    path: C:\\Users\\xhhm\\Desktop\\log

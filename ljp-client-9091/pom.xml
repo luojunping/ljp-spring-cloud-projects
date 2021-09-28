@@ -63,10 +63,9 @@
             <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
             <scope>compile</scope>
         </dependency>-->
-
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
         <!-- Spring Cloud -->
 
