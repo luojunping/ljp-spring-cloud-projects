@@ -984,6 +984,6 @@ ljp-server-9096/ljp-server-9096.iml
 ljp-server-9096/target/
 ljp-server-9097/ljp-server-9097.iml
 ljp-server-9097/target/
-ljp-spring/ljp-spring.iml
-ljp-spring/target/
+ljp-spring-boot/ljp-spring.iml
+ljp-spring-boot/target/
 ljp-spring-cloud-projects.iml
