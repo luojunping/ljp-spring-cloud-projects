@@ -13,6 +13,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>ljp-server-9097</artifactId>
+    <packaging>jar</packaging>
+    <name>ljp-server-9097</name>
+    <description>ljp-server-9097</description>
 
     <properties>
         <java.version>11</java.version>
@@ -72,7 +75,7 @@
         <!-- Others -->
         <dependency>
             <groupId>com.ljp</groupId>
-            <artifactId>ljp-core</artifactId>
+            <artifactId>ljp-common</artifactId>
         </dependency>
 
         <dependency>
@@ -83,7 +86,7 @@
     </dependencies>
 
     <build>
-        <finalName>ljp-server-9097</finalName>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
