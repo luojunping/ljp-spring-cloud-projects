@@ -4,8 +4,8 @@
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>#${spring.application.name}# %d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{50} %L -
-                %msg%n
+            <pattern>
+                %d{MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{50} %L - %msg%n
             </pattern>
         </encoder>
     </appender>

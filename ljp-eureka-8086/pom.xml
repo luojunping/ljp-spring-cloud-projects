@@ -12,9 +12,10 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <version>1.0-SNAPSHOT</version>
     <artifactId>ljp-eureka-8086</artifactId>
     <packaging>jar</packaging>
+    <name>ljp-eureka-8086</name>
+    <description>ljp-eureka-8086</description>
 
     <properties>
         <java.version>11</java.version>
@@ -24,17 +25,15 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 
     <build>
-        <finalName>ljp-eureka-8086</finalName>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

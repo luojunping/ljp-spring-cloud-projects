@@ -2,9 +2,11 @@ server:
   port: 8086
   servlet:
     encoding:
-      force: true
-      charset: utf-8
       enabled: true
+      force: true
+      force-request: true
+      force-response: true
+      charset: utf-8
 spring:
   application:
     name: ljp-eureka
@@ -13,7 +15,7 @@ eureka:
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
     appname: ${spring.application.name}
     prefer-ip-address: true
-    lease-expiration-duration-in-seconds: 60
+    lease-expiration-duration-in-seconds: 90
   client:
     register-with-eureka: false
     fetch-registry: false

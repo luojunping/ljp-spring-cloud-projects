@@ -50,8 +50,8 @@ public class ActivemqMessageListener {
     }
 
     private void init(DefaultJmsListenerContainerFactory defaultJmsListenerContainerFactory) {
-        defaultJmsListenerContainerFactory.setTaskExecutor(ThreadPoolExecutorUtils.create());
-        defaultJmsListenerContainerFactory.setConcurrency(ThreadPoolExecutorUtils.CORE_SIZE + "-" + (ThreadPoolExecutorUtils.CORE_SIZE << 1));
+        defaultJmsListenerContainerFactory.setTaskExecutor(ThreadPoolExecutorBuilder.create());
+        defaultJmsListenerContainerFactory.setConcurrency(ThreadPoolExecutorBuilder.CORE_SIZE + "-" + (ThreadPoolExecutorBuilder.CORE_SIZE << 1));
         defaultJmsListenerContainerFactory.setSessionTransacted(Boolean.TRUE);
         defaultJmsListenerContainerFactory.setSessionAcknowledgeMode(Session.AUTO_ACKNOWLEDGE);
     }*/
