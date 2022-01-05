@@ -20,11 +20,11 @@
 
     <properties>
         <java.version>11</java.version>
-        <spring-boot.version>2.4.13</spring-boot.version>
+        <spring-boot.version>2.5.8</spring-boot.version>
         <spring-cloud.version>2020.0.5</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
         <pooled-jms.version>2.0.2</pooled-jms.version>
-        <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
+        <mybatis-plus.version>3.5.0</mybatis-plus.version>
         <druid.version>1.2.8</druid.version>
         <redisson.version>3.16.7</redisson.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
